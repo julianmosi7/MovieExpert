@@ -1,20 +1,24 @@
 package comf.example.user.movieexpert;
 
+import android.support.annotation.NonNull;
+
 import java.util.Date;
 
-public class Movie {
+public class Movie implements Comparable<Movie>{
     int ID;
     double vote_average;
     String title;
-    String backdrop_path;
+    double popularity;
+    String poster_path;
     String overview;
     Date release_date;
 
-    public Movie(int ID, double vote_average, String title, String backdrop_path, String overview, Date release_date) {
+    public Movie(int ID, double vote_average, String title, double popularity, String poster_path, String overview, Date release_date) {
         this.ID = ID;
         this.vote_average = vote_average;
         this.title = title;
-        this.backdrop_path = backdrop_path;
+        this.popularity = popularity;
+        this.poster_path = poster_path;
         this.overview = overview;
         this.release_date = release_date;
     }
@@ -43,12 +47,20 @@ public class Movie {
         this.title = title;
     }
 
-    public String getBackdrop_path() {
-        return backdrop_path;
+    public double getPopularity() {
+        return popularity;
     }
 
-    public void setBackdrop_path(String backdrop_path) {
-        this.backdrop_path = backdrop_path;
+    public void setPopularity(double popularity) {
+        this.popularity = popularity;
+    }
+
+    public String getPoster_path() {
+        return poster_path;
+    }
+
+    public void setPoster_path(String backdrop_path) {
+        this.poster_path = poster_path;
     }
 
     public String getOverview() {
@@ -69,5 +81,10 @@ public class Movie {
 
     public String toString(){
         return title;
+    }
+
+    @Override
+    public int compareTo(@NonNull Movie o){
+        return this.title.compareTo(o.title);
     }
 }

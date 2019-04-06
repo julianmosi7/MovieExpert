@@ -19,6 +19,8 @@ public class TwoRowMovieAdapter extends BaseAdapter {
     private int layoutId;
     private LayoutInflater inflater;
 
+    public static final String PIC_PATH = "http://image.tmdb.org/t/p/w154";
+
     public TwoRowMovieAdapter(Context ctx, int layoutId, List<Movie> movies){
         this.movies = movies;
         this.layoutId = layoutId;
@@ -45,13 +47,9 @@ public class TwoRowMovieAdapter extends BaseAdapter {
         Movie movie = movies.get(position);
         View listItem = (convertView == null) ? inflater.inflate(this.layoutId, null) : convertView;
 
-        ImageView view = (ImageView) convertView;
-        if(view == null){
-            //view = new ImageView();
-        }
-        String url = movie.getBackdrop_path();
-        //ImageView imgview = convertView.findViewById(R.id.imageView);
-        Picasso.get().load(url).into(view);
+        ImageView imgview = listItem.findViewById(R.id.imageView);
+        Picasso.get().load(PIC_PATH + movie.getPoster_path()).into(imgview);
+
         return listItem;
     }
 }
