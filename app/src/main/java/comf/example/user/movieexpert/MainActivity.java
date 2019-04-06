@@ -28,7 +28,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    List<Movie> movies = new ArrayList();
+    List<Movie> movies = new ArrayList<>();
     public String FILENAME = "movies.json";
     private GridView mGridView;
     private TwoRowMovieAdapter movieAdapter;
